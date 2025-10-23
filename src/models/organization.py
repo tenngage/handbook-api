@@ -10,7 +10,7 @@ class Organization(Base):
 
     id: Mapped[int] = mapped_column(primary_key=True)
     name: Mapped[str] = mapped_column(String(30))
-    building_id: Mapped[int] = mapped_column(ForeignKey("buildings.id"), unique=True)
+    building_id: Mapped[int] = mapped_column(ForeignKey("buildings.id"))
 
-    building = relationship("Building", back_populates="organization")
+    building = relationship("Building", back_populates="organizations")
     phones = relationship("Phone", back_populates="organization")
