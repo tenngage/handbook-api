@@ -3,8 +3,6 @@ from sqlalchemy import String, ForeignKey
 
 from src.database.base_class import Base
 
-from src.models import Organization
-
 class Phone(Base):
     __tablename__ = "phones"
 
@@ -13,4 +11,4 @@ class Phone(Base):
     phone_number: Mapped[str] = mapped_column(String(20), nullable=False)
     phone_type: Mapped[str] = mapped_column(String(15), nullable=False)
 
-    organization: Mapped["Organization"] = relationship(back_populates="phones")
+    organization = relationship("Organization", back_populates="phones")
